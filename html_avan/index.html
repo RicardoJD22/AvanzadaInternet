@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <style>
+        canvas{
+            background-color: rgb(136, 169, 169);
+        }
+
+        body{
+            background-color: black;
+        }
+        </style>
+    </head>
+    <body>
+        
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        var canvas= document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        
+        ctx.fillStyle="red";
+        ctx.fillRect(60,60,80,80);
+        ctx.fillStyle="green";
+        ctx.fillRect(120,120,80,80);
+        ctx.fillStyle="blue";
+        ctx.fillRect(180,180,80,80);
+
+        
+
+        
+ </script>
+    </body>
+</html>
