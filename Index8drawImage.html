@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <style>
+        canvas{
+            background-color: rgb(136, 169, 169);
+        }
+
+        body{
+            background-color: black;
+        }
+        </style>
+    </head>
+    <body>
+        
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+
+
+
+   
+        var canvas= document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+        
+
+
+        
+        ctx.beginPath();
+        var grd = ctx.createLinearGradient (150,150,200,100);
+        grd.addColorStop(0,"#FF5733");
+        grd.addColorStop(1,"#86FF33");
+        
+        
+
+        ctx.fillStyle= grd;
+        ctx.fillRect(190,190,210,210);
+ 
+        ctx.closePath();
+        
+ ctx.beginPath();
+ 
+   
+    var img = new Image();
+    img.onload = function() {
+     
+      ctx.drawImage(img, 100, 100, canvas.width, canvas.height);
+    };
+     img.src = 'cr7.jpg';
+    
+    
+    ctx.closePath()
+    ctx.beginPath();
+        ctx.font = "30px Arial";  
+        ctx.fillStyle = "blue";    
+
+        ctx.fillText("¡Hola, mundo!", 50, 100); 
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(340,180,50,0,2* Math.PI);
+        ctx.fillStyle="blue";
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(120,180,50,0,2* Math.PI);
+        ctx.fillStyle="blue";
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(120,180,20,0,2* Math.PI);
+        ctx.fillStyle="white";
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(340,180,20,0,2* Math.PI);
+        ctx.fillStyle="white";
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+
+        
+ </script>
+    </body>
+</html>
