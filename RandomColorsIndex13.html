@@ -38,13 +38,6 @@
             ctx.closePath();
         });
 
-        canvas.addEventListener("mouseout", (e)=> {
-
-            value = !value;
-            console.log("mouseout");
-            console.log(e);
-        })
-
         canvas.addEventListener("mouseover", (e)=> {
             ctx.fillStyle = value ? circleColor : generateRandomColor();
             circleColor=generateRandomColor();
