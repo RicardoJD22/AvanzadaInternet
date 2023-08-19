@@ -1,0 +1,38 @@
+
+<html>
+<head>
+
+    <style>
+        canvas{
+            background-color: rgb(39, 218, 218);
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.addEventListener("mousedown", (e) => {
+            console.log("mousedown")
+            console.log(e)
+
+
+            ctx.beginPath();
+            ctx.fillStyle = "white";
+            ctx.arc(e.layerX, e.layerY, 45, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.strokeStyle = "purple";
+            ctx.stroke();
+            ctx.closePath();
+        });
+    </script>
+</body>
+</html>
