@@ -1,0 +1,87 @@
+<html>
+<head>
+
+    <style>
+        canvas{
+            background-color: rgb(39, 218, 218);
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+       
+        var value = true;
+        var circleColor = "#FF2030"
+
+
+        canvas.addEventListener("mousedown", (e) => {
+            if(value){
+                ctx.beginPath();
+            
+            ctx.arc(e.layerX, e.layerY, 45, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.stroke();
+            ctx.closePath();
+            }
+            else{
+                ctx.beginPath();
+                ctx.fillRect(e.layerX -45, e.layerY -45,90,90);
+                ctx.fill();
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+                ctx.closePath();
+
+            }
+            console.log("mousedown");
+            console.log(e);
+
+            
+        });
+
+
+          canvas.addEventListener("mouseover", (e)=> {
+            ctx.fillStyle = value ? circleColor : generateRandomColor();
+            circleColor=generateRandomColor();
+            console.log("mouseover");
+            console.log(e);
+        })
+
+            function generateRandomColor(){
+            var colors = '0123456789ABCDEF';
+            var color = 'rgba(';
+
+            for (var i = 0; i<3; i++){
+                var channelValue = parseInt(colors[Math.floor(Math.random()*16)] 
+                + colors[Math.floor(Math.random()*16)],16);
+               
+                color += channelValue;
+               
+               
+                if (i<2){
+                    color+=', ';
+                }
+            }
+            
+            color+=', 0.5)';
+            return color;
+        }
+
+        canvas.addEventListener("mouseout", (e)=>{
+            value = !value;
+            console.log("mouseout");
+            console.log(e);
+        })
+
+    </script>
+</body>
+</html>
