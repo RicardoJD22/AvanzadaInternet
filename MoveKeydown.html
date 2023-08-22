@@ -1,0 +1,68 @@
+
+<html>
+<head>
+
+    <style>
+        canvas{
+            background-color: rgb(16, 123, 123);
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        var value = true;
+        var color = randomRgbColor();
+        var pressed = false;
+        var x= 225, y=225;
+
+        document.addEventListener("keydown", (e)=>{
+            console.log (e)
+
+            if (e.keyCode==39) {
+                y-= 10;
+            }
+
+            if (e.keyCode==40){
+                y += 10;
+            }
+
+            if (e.keyCode==37){
+                y-= 10;
+            }
+            update();
+
+        
+
+
+            
+        });
+
+        function update(){
+            
+            ctx.fillStyle = "white";
+            ctx.fillRect (0,0,500,500);
+
+            color = randomRgbColor();
+            ctx.fillStyle = color;
+            ctx.fillRect(x,y,50,50);
+            ctx.strokeRect(x,y,50,50);
+            
+        }
+        
+        function randomRgbColor() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+           
+        }
+       
