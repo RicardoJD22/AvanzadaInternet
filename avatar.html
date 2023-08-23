@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <style>
+            canvas{
+                background-color: rgb(195, 210, 210);
+            }
+            body{
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas width="500" height="500" id="myCanvas"></canvas>
+        <script>
+            var canvas= document.getElementById('myCanvas');
+            var ctx= canvas.getContext('2d');
+          
+            /*
+            ctx.fillStyle = "red";
+            ctx.fillRect(50,40,80,80);
+            ctx.fillStyle = "green";
+            ctx.fillRect(120,100,80,80);
+            ctx.fillStyle = "blue";
+             ctx.fillRect(180,160,80,80);
+*/
+ctx.beginPath();
+             ctx.arc(240,90,52,0,2* Math.PI);
+             ctx.fillStyle = "black";
+             ctx.fill();
+             ctx.closePath();
+
+
+             ctx.beginPath();
+             ctx.arc(240,100,50,0,2* Math.PI);
+             ctx.fillStyle = "#F9CBA2";
+             ctx.fill();
+             ctx.closePath();
+
+             ctx.beginPath();
+             ctx.arc(225,95,5,0,2* Math.PI);
+             ctx.fillStyle = "black";
+             ctx.fill();
+             ctx.closePath();
+
+             ctx.beginPath();
+             ctx.arc(255,95,5,0,2* Math.PI);
+             ctx.fillStyle = "black";
+             ctx.fill();
+             ctx.closePath();
+
+             ctx.beginPath();
+          ctx.moveTo(280,110);
+          ctx.lineTo(210,120);
+          ctx.stroke();
+        
+          ctx.fillStyle = "#015AC0";
+            ctx.fillRect(185,148,110,175);
+
+            ctx.beginPath();
+            ctx.fillStyle = "#015AC0";
+            ctx.fillRect(105,148,90,40);
+            
+          ctx.closePath();
+          ctx.beginPath();
+            ctx.fillStyle = "#015AC0";
+            ctx.fillRect(105,98,40,80);
+            
+          ctx.closePath();
+
+          ctx.beginPath();
+            ctx.fillStyle = "#015AC0";
+            ctx.fillRect(285,148,90,40);
+            ctx.closePath();
+
+            ctx.fillStyle = "#015AC0";
+            ctx.fillRect(335,162,40,80);
+            
+
+            ctx.beginPath();
+             ctx.arc(125,83,25,0,2* Math.PI);
+             ctx.fillStyle = "#F9CBA2";
+             ctx.fill();
+             ctx.closePath();
+
+             ctx.beginPath();
+             ctx.arc(355,252,25,0,2* Math.PI);
+             ctx.fillStyle = "#F9CBA2";
+             ctx.fill();
+             ctx.closePath();
+
+             ctx.fillStyle = "#C6AF71";
+            ctx.fillRect(185,300,110,120);
+
+            ctx.fillStyle = "#624C1F";
+            ctx.fillRect(165,420,70,30);
+
+            ctx.fillStyle = "#624C1F";
+            ctx.fillRect(245,420,70,30);
+
+
+            ctx.beginPath();
+          ctx.moveTo(240,330);
+          ctx.lineTo(240,420);
+          ctx.stroke();
+
+          ctx.beginPath();
+            ctx.font = "20px Arial";
+
+            ctx.strokeText("JORDAN", 198, 200);
+
+            ctx.closePath();
+          
+        </script>
+    </body>
+</html>
