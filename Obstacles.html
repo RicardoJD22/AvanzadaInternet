@@ -1,0 +1,190 @@
+<html>
+
+<head>
+    <style>
+        canvas{
+            background-color: white; 
+        }
+        body{
+            background-color: black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    
+    <center>
+        <canvas width="500" height="500" id="myCanvas"></canvas>
+    </center>
+
+    <img src="" id="mi_imagen" style="display: none;" alt="">
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+      
+        var x = 20, y = 20, dir = 0, w=50, h=50, speed=10;
+        var tx = 50, ty=50, tw=20, th=20;
+        var dX = 0, dY = 0;
+        var seToca = false;
+        var colision = false;
+        var obs = [
+    { x: 140, y: 400, width: 200, height: 20 },
+    { x: 140, y: 200, width: 200, height: 20 }
+];
+        var score = 0;
+        var paused = false;
+      
+
+        var pauseMessage = "P A U S A (pulsa [espacio] para reanudar)";
+
+        document.addEventListener("keydown", (e) => {
+            switch (e.keyCode) {
+                case 65:
+                    dir = e.keyCode;
+                    break;
+                case 68:
+                    dir = e.keyCode;
+                    break;
+                case 87:
+                    dir = e.keyCode;
+                    break;
+                case 83:
+                    dir = e.keyCode;
+                    break;
+                case 32:
+                    paused = !paused;
+                    dir = e.keyCode;
+                    break;
+            }
+        });
+
+        function update() {
+            if (!paused) {
+                switch (dir) {
+                    case 68:
+                        x += 3;
+                        if (x > 550) { x = -50; };
+                        break;
+                    case 65:
+                        x -= 3;
+                        if (x < -50) { x = 550; };
+                        break;
+                    case 87:
+                        y -= 3;
+                        if (y < -50) { y = 550; };
+                        break;
+                    case 83:
+                        y += 3;
+                        if (y > 550) { y = -50; };
+                        break;
+                }
+
+                if(!seToca){
+                    dX = x;
+                    dY = y;
+                }
+
+                
+
+            repaint();
+            } else {
+                ctx.fillStyle = 'green';
+                ctx.fillRect(0, 0, 500, 500);
+
+                ctx.fillStyle = '#B6D4A5'; 
+                ctx.font = '22px Arial'; 
+                ctx.textAlign = 'center';
+                ctx.fillText(pauseMessage, 250, 200);
+            }
+
+            window.requestAnimationFrame(update);
+        }
+
+        function repaint() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, 600, 600);
+            ctx.fillStyle = getRandomColor();
+            ctx.fillRect(x, y, w, h);
+            ctx.strokeRect(x, y, w, h);
+
+            //CUBO COLICIÓN
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(tx,ty,tw,th);
+
+           
+
+
+
+            if(x < tx + tw &&  x + w >
+             tx && y < ty + 
+             th && y + h > ty)
+             { 
+                tx = Math.floor(Math.random() * (290 - 0 + 1) + 0);
+                ty = Math.floor(Math.random() * (145 - 0 + 1) + 0);
+
+
+                score++;
+
+            }
+            //CONTADOR DE PUNTOS.
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'left';
+            ctx.fillText('Puntos: ' + score, 10, 30);
+
+            //OBSTACULO
+            ctx.fillStyle = 'gray';
+    for (var i = 0; i < obs.length; i++) {
+        ctx.fillRect(obs[i].x, obs[i].y, obs[i].width, obs[i].height);
+        
+        if (x < obs[i].x + obs[i].width &&
+            x + w > obs[i].x &&
+            y < obs[i].y + obs[i].height &&
+            y + h > obs[i].y) {
+            seToca = true;
+            x = dX;
+            y = dY;
+        }
+
+        
+    }
+
+         
+
+
+            
+        }
+
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256); 
+            const b = Math.floor(Math.random() * 256);
+            const alpha = 0.9; 
+            return `rgba(${r},${g},${b},${alpha})`;
+        }
+
+        window.requestAnimationFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 17);
+                };
+        }());
+
+        window.requestAnimationFrame(update);
+
+        function pintarCuadro(){
+            ctx.fillStyle = '#000';
+            ctx.fillRect(Math.floor(Math.random() * (290 - 0 + 1) + 0),Math.floor(Math.random() * (145 - 0 + 1) + 0),10,5);
+        }
+
+    </script>
+</body>
+
+</html>
