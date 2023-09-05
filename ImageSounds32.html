@@ -18,11 +18,10 @@
         var walls = [];
         var pause = false;
         var dir = 0;
-        speed = 10;
+        speed = 5;
         var x = 225;
         var y = 225;
         var score = 0;
-        
         var image = new Image();
         var audio = new Audio();
         audio.src="siuu.mp3";
@@ -53,11 +52,10 @@
         const player = new Cuadrado(225, 225, 50, 50, "black");
         const target = new Cuadrado(randomInteger(400), randomInteger(400), 20, 20, "black");
 
-      
-      walls.push(new Cuadrado(170, 400, 250,30, "gray"));
+        
+        walls.push(new Cuadrado(170, 400, 250,30, "gray"));
         walls.push(new Cuadrado(100, 190, 200, 30, "gray"));
         walls.push(new Cuadrado(170, 90, 150, 30, "gray"));
-
 
     
         window.requestAnimationFrame = (function () {
@@ -128,7 +126,7 @@
             if(player.seTocan(target)){
                 target.x = randomInteger(400);
                 target.y = randomInteger(400);
-                score += 10;
+                score += 1;
                 audio.play();
             }
 
@@ -169,7 +167,7 @@
 
             ctx.font = "20px Georgia";
             ctx.fillStyle = "black";
-            ctx.fillText("SCORE: " + score, 10, 20);
+            ctx.fillText("Puntos: " + score, 10, 20);
 
             player.c = generateRandomColor();
             
@@ -181,10 +179,10 @@
             }
 
             if(pause){
-                ctx.font = "20px Georgia";
+                ctx.font = "20px Arial";
                 ctx.fillStyle = "black";
                 ctx.fillText("P A U S E", 200, 250);
-                ctx.fillStyle="rgba(225,120,40,0.5)";
+                ctx.fillStyle="rgba(225,200,40,0.5)";
                 ctx.fillRect(0,0,canvas.width, canvas.height);
             }
         }        
