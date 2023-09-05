@@ -18,10 +18,11 @@
         var walls = [];
         var pause = false;
         var dir = 0;
-        speed = 2;
+        speed = 10;
         var x = 225;
         var y = 225;
         var score = 0;
+        
         var image = new Image();
         var audio = new Audio();
         audio.src="siuu.mp3";
@@ -52,10 +53,11 @@
         const player = new Cuadrado(225, 225, 50, 50, "black");
         const target = new Cuadrado(randomInteger(400), randomInteger(400), 20, 20, "black");
 
-        //paredes
-        walls.push(new Cuadrado(170, 350, 250,30, "gray"));
-        walls.push(new Cuadrado(170, 190, 200, 30, "gray"));
+      
+      walls.push(new Cuadrado(170, 400, 250,30, "gray"));
+        walls.push(new Cuadrado(100, 190, 200, 30, "gray"));
         walls.push(new Cuadrado(170, 90, 150, 30, "gray"));
+
 
     
         window.requestAnimationFrame = (function () {
