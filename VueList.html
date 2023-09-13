@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js Lista</title>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Lista de invitados xd</h1>
+
+       
+        <ul>
+            <li v-for="elemento in elementos">{{ elemento }}</li>
+        </ul>
+<fieldset>
+    <legend>Nombre
+        <input type="text" v-model="nuevoElemento">
+        <button @click="agregarElemento">Agregar</button>
+    </legend>
+    </fieldset>
+    </div>
+
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                elementos: [], 
+                nuevoElemento: '' 
+            },
+            methods: {
+                agregarElemento() {
+                    if (this.nuevoElemento.trim() !== '') {
+                        this.elementos.push(this.nuevoElemento); 
+                        this.nuevoElemento = ''; 
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
