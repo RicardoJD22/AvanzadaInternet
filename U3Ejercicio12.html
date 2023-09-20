@@ -36,6 +36,7 @@
           const user = data.find(user => user.username === username && user.password === password);
           if (user) {
             document.getElementById('login-status').textContent = 'Inicio de sesión exitoso.';
+            alert("Bienvenido");
           } else {
             document.getElementById('login-status').textContent = 'Nombre de usuario o contraseña incorrectos.';
           }

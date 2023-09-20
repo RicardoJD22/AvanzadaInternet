@@ -1,14 +1,14 @@
 [
     {
-      "username": "usuario1",
+      "username": "usuario1@gmail.com",
       "password": "contrasena1"
     },
     {
-      "username": "usuario2",
+      "username": "usuario2@gmail.com",
       "password": "contrasena2"
     },
     {
-      "username": "usuario3",
+      "username": "usuario3@gmail.com",
       "password": "contrasena3"
     }
   ]
